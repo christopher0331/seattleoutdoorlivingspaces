@@ -1,0 +1,13 @@
+{
+  "/_app": "pages/_app.js",
+  "/_error": "pages/_error.js",
+  "/gallery": "pages/gallery.js",
+  "/contact": "pages/contact.js",
+  "/fencing/[type]": "pages/fencing/[type].js",
+  "/services": "pages/services.html",
+  "/forms": "pages/forms.js",
+  "/": "pages/index.js",
+  "/_document": "pages/_document.js",
+  "/404": "pages/404.html",
+  "/services.amp": "pages/services.amp.html"
+}

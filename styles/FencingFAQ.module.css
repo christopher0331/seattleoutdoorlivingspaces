@@ -1,0 +1,251 @@
+.container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #333;
+  font-size: 2.5rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.formSelector {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.formButton {
+  background-color: #f0f0f0;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  margin: 0 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.formButton.active {
+  background-color: #45b167;
+  color: white;
+  box-shadow: 0 4px 6px rgba(69, 177, 103, 0.2);
+}
+
+.formContainer {
+  background-color: #ffffff;
+  padding: 3rem;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  position: relative;
+  min-height: 500px;
+}
+
+.motionForm {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.formGroup {
+  margin-bottom: 1.5rem;
+}
+
+.label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #555;
+  font-weight: 500;
+}
+
+.input,
+.textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.input:focus,
+.textarea:focus {
+  outline: none;
+  border-color: #45b167;
+  box-shadow: 0 0 0 2px rgba(69, 177, 103, 0.2);
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.submitButton {
+  background-color: #45b167;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-top: 1rem;
+}
+
+.submitButton:hover {
+  background-color: #388e54;
+}
+
+.errorInput {
+  border-color: #ff0000;
+}
+
+.errorText {
+  color: #ff0000;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+.successMessage {
+  text-align: center;
+  color: #45b167;
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 4rem 1rem;
+  }
+
+  .container h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .container .form {
+    font-size: 1.1rem;
+    padding: 1.2rem;
+  }
+
+  .container .form p {
+    font-size: 1rem;
+    padding: 1.2rem;
+  }
+}
+
+.faqSection {
+  background-color: #f8f9fa;
+  padding: 6rem 2rem;
+  margin-top: 2rem;
+}
+
+.faqSection h2 {
+  text-align: center;
+  margin-bottom: 3rem;
+  color: #333;
+  font-size: 2.5rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.faqContainer {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faqItem {
+  margin-bottom: 1.5rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.faqItem:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.faqQuestion {
+  width: 100%;
+  text-align: left;
+  padding: 1.5rem;
+  background-color: #fff;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.faqQuestion:hover {
+  background-color: #f0f0f0;
+}
+
+.faqQuestion.active {
+  background-color: #e8f5e9;
+  color: #006400;
+}
+
+.faqQuestion span {
+  margin-left: 10px;
+  transition: transform 0.3s ease;
+}
+
+.faqAnswer {
+  background-color: #fff;
+  overflow: hidden;
+}
+
+.faqAnswer p {
+  padding: 1.5rem;
+  margin: 0;
+  color: #555;
+  line-height: 1.8;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+  .faqSection {
+    padding: 4rem 1rem;
+  }
+
+  .faqSection h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .faqQuestion {
+    font-size: 1.1rem;
+    padding: 1.2rem;
+  }
+
+  .faqAnswer p {
+    font-size: 1rem;
+    padding: 1.2rem;
+  }
+}

@@ -1,0 +1,107 @@
+.container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #333;
+  font-size: 2.5rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.formSelector {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.formButton {
+  background-color: #f0f0f0;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  margin: 0 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.formButton.active {
+  background-color: #45b167;
+  color: white;
+  box-shadow: 0 4px 6px rgba(69, 177, 103, 0.2);
+}
+
+.formContainer {
+  background-color: #ffffff;
+  padding: 3rem;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  position: relative;
+  min-height: 500px;
+}
+
+.motionForm {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.form {
+  display: flex;
+.socialBar {
+    background-color: #45b167;
+    padding: 0.75rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.contactLinks {
+    display: flex;
+    align-items: center;
+}
+
+.contactLinks a {
+    margin-right: 1rem;
+    color: #333;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.socialIcons {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+.socialIcons a {
+    margin-left: 1rem;
+    color: #333;
+    text-decoration: none;
+    font-size: 1.5rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.socialIcons a:hover {
+    color: #006400;
+    transform: scale(1.2);
+}
+
+/* ... (add the rest of the social bar styles from Navbar.module.css) ... */
+
+@media (max-width: 798px) {
+    /* ... (add the mobile styles for social bar from Navbar.module.css) ... */
+}
+}
