@@ -1,11 +1,28 @@
+import { useState } from 'react';
 import Head from 'next/head';
+import GeneralInquiryForm from '../components/GeneralInquiryForm';
+import ProjectOverviewForm from '../components/ProjectOverviewForm';
+import WarrantyForm from '../components/WarrantyForm';
+import FeedbackForm from '../components/FeedbackForm';
+import Testimonials from '../components/Testimonials'; // Import the ReviewsComponent
 import styles from '../styles/Forms.module.css';
 
 export default function Forms() {
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle form submission logic here
-    console.log('Form submitted');
+  const [activeForm, setActiveForm] = useState('general');
+
+  const renderForm = () => {
+    switch(activeForm) {
+      case 'general':
+        return <GeneralInquiryForm />;
+      case 'warranty':
+        return <WarrantyForm />;
+      case 'projectOverview':
+        return <ProjectOverviewForm />;
+      case 'feedback':
+        return <FeedbackForm />;
+      default:
+        return <GeneralInquiryForm />;
+    }
   };
 
   return (
@@ -17,21 +34,41 @@ export default function Forms() {
 
       <h1 className={styles.title}>Contact Us</h1>
 
-      <form className={styles.form} onSubmit={handleSubmit}>
-        <div className={styles.formGroup}>
-          <label htmlFor="name" className={styles.label}>Name</label>
-          <input type="text" id="name" name="name" className={styles.input} required />
-        </div>
-        <div className={styles.formGroup}>
-          <label htmlFor="email" className={styles.label}>Email</label>
-          <input type="email" id="email" name="email" className={styles.input} required />
-        </div>
-        <div className={styles.formGroup}>
-          <label htmlFor="message" className={styles.label}>Message</label>
-          <textarea id="message" name="message" className={styles.textarea} required></textarea>
-        </div>
-        <button type="submit" className={styles.submitButton}>Send Message</button>
-      </form>
+      <div className={styles.tabContainer}>
+        <button 
+          className={`${styles.tab} ${activeForm === 'general' ? styles.activeTab : ''}`}
+          onClick={() => setActiveForm('general')}
+        >
+          General Inquiry
+        </button>
+        <button 
+          className={`${styles.tab} ${activeForm === 'warranty' ? styles.activeTab : ''}`}
+          onClick={() => setActiveForm('warranty')}
+        >
+          Warranty Form
+        </button>
+        <button 
+          className={`${styles.tab} ${activeForm === 'projectOverview' ? styles.activeTab : ''}`}
+          onClick={() => setActiveForm('projectOverview')}
+        >
+          Project Overview Form
+        </button>
+        <button 
+          className={`${styles.tab} ${activeForm === 'feedback' ? styles.activeTab : ''}`}
+          onClick={() => setActiveForm('feedback')}
+        >
+          Feedback
+        </button>
+      </div>
+
+      <div className={styles.formContainer}>
+        {renderForm()}
+      </div>
+
+      {/* Add the ReviewsComponent below the forms */}
+      <div className={styles.reviewsSection}>
+        <Testimonials />
+      </div>
     </div>
   );
 }

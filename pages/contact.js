@@ -1,4 +1,5 @@
 import styles from '../styles/Contact.module.css'
+import Testimonials from '../components/Testimonials';
 
 export default function Contact() {
   return (
@@ -19,16 +20,19 @@ export default function Contact() {
         </div>
         <button type="submit" className={styles.submitButton}>Send Message</button>
       </form>
+      <div>
+        <Testimonials />
+      </div>
     </div>
   )
 }
 
 
-export async function getStaticProps() {
+export async function getStaticProps({ params }) {
   return {
     props: {
-      heroImage: "https://imagedelivery.net/OHVtjf602XdHccCnziCADA/564989bf-964c-45c3-2ec6-deeeb9dd2800/public",
-      showHero: true
+      heroImage: "https://imagedelivery.net/OHVtjf602XdHccCnziCADA/564989bf-964c-45c3-2ec6-deeeb9dd2800/public", // Replace with actual hero image URL
+      showHero: true // or false, depending on whether you want to show the hero on fencing pages
     }
   }
 }

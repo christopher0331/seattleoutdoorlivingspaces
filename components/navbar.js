@@ -72,8 +72,8 @@ export default function Navbar() {
     <div className={`${styles.navbarWrapper} ${!isNavbarVisible ? styles.hidden : ''}`}>
       <div className={styles.contactInfo}>
         <div className={styles.contactLinks}>
-          <a href="tel:+1234567890">📞 (123) 456-7890</a>
-          <a href="mailto:info@example.com">✉️ info@example.com</a>
+          <a href="tel:+1234567890">📞 (206)247-4308</a>
+          <a href="mailto:admin@gvsco.net">✉️ mailto:admin@gvsco.net</a>
         </div>
         <div className={`${styles.socialIcons} ${isSocialOpen ? styles.open : ''}`}>
           {isMobile ? (
