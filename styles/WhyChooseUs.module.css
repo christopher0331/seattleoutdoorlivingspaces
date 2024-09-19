@@ -1,0 +1,85 @@
+.whyChooseUs {
+  padding: 6rem 2rem;
+  background-color: #f8f9fa;
+}
+
+.whyChooseUs h2 {
+  text-align: center;
+  margin-bottom: 4rem;
+  color: #333;
+  font-size: 2.5rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.cardContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.icon {
+  font-size: 3rem;
+  color: #006400;
+  margin-bottom: 1rem;
+}
+
+.card h3 {
+  color: #006400;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.card p {
+  color: #555;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.card a {
+  color: #006400;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.card a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 1200px) {
+  .cardContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .whyChooseUs {
+    padding: 4rem 1rem;
+  }
+
+  .whyChooseUs h2 {
+    font-size: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .cardContainer {
+    grid-template-columns: 1fr;
+  }
+}
