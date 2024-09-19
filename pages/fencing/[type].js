@@ -30,11 +30,11 @@ export async function getStaticPaths() {
   return { paths, fallback: false }
 }
 
-export async function getStaticProps() {
+export async function getStaticProps({ params }) {
   return {
     props: {
-      heroImage: "https://imagedelivery.net/OHVtjf602XdHccCnziCADA/564989bf-964c-45c3-2ec6-deeeb9dd2800/public",
-      showHero: true,
-    },
-  };
+      heroImage: "https://example.com/fencing-hero-image.jpg", // Replace with actual hero image URL
+      showHero: true // or false, depending on whether you want to show the hero on fencing pages
+    }
+  }
 }

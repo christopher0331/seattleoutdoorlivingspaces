@@ -17,13 +17,13 @@
   letter-spacing: 2px;
 }
 
-.formSelector {
+.tabContainer {
   display: flex;
   justify-content: center;
   margin-bottom: 2rem;
 }
 
-.formButton {
+.tab {
   background-color: #f0f0f0;
   border: none;
   padding: 0.75rem 1.5rem;
@@ -35,7 +35,7 @@
   font-weight: 500;
 }
 
-.formButton.active {
+.tab.activeTab {
   background-color: #45b167;
   color: white;
   box-shadow: 0 4px 6px rgba(69, 177, 103, 0.2);
@@ -46,15 +46,6 @@
   padding: 3rem;
   border-radius: 8px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  position: relative;
-  min-height: 500px;
-}
-
-.motionForm {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
 }
 
 .form {
@@ -66,15 +57,15 @@
   margin-bottom: 1.5rem;
 }
 
-.label {
+.formGroup label {
   display: block;
   margin-bottom: 0.5rem;
   color: #555;
   font-weight: 500;
 }
 
-.input,
-.textarea {
+.formGroup input,
+.formGroup textarea {
   width: 100%;
   padding: 0.75rem;
   border: 1px solid #ddd;
@@ -83,19 +74,19 @@
   transition: border-color 0.3s ease;
 }
 
-.input:focus,
-.textarea:focus {
+.formGroup input:focus,
+.formGroup textarea:focus {
   outline: none;
   border-color: #45b167;
   box-shadow: 0 0 0 2px rgba(69, 177, 103, 0.2);
 }
 
-.textarea {
+.formGroup textarea {
   resize: vertical;
   min-height: 150px;
 }
 
-.submitButton {
+.form button {
   background-color: #45b167;
   color: white;
   border: none;
@@ -110,25 +101,9 @@
   align-self: flex-start;
 }
 
-.submitButton:hover {
+.form button:hover {
   background-color: #3a9456;
   box-shadow: 0 4px 6px rgba(69, 177, 103, 0.2);
-}
-
-.errorText {
-  color: red;
-  font-size: 0.9rem;
-  margin-top: 0.5rem;
-}
-
-.errorInput {
-  border-color: red;
-  box-shadow: 0 0 0 2px rgba(255, 0, 0, 0.2);
-}
-
-.successMessage {
-  text-align: center;
-  color: #45b167;
 }
 
 @media (max-width: 768px) {
@@ -142,7 +117,209 @@
     margin-bottom: 1.5rem;
   }
 
-  .submitButton {
+  .tabContainer {
+    flex-direction: column;
+  }
+
+  .tab {
+    margin: 0.5rem 0;
+  }
+
+  .formContainer {
+    padding: 1.5rem;
+  }
+
+  .form button {
     width: 100%;
+  }
+}
+
+.projOverviewDiv {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.projOverviewDiv h1 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.projOverviewDiv form {
+  display: flex;
+  flex-direction: column;
+}
+
+.formField {
+  margin-bottom: 1.5rem;
+}
+
+.pofLabel {
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.formInput {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.formInput:focus {
+  outline: none;
+  border-color: #4CAF50;
+  box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+}
+
+.radioGroup {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.radioGroup label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.radioGroup input[type="radio"] {
+  margin-right: 0.5rem;
+}
+
+.orientationImages {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1rem;
+}
+
+.imageWrapper {
+  text-align: center;
+}
+
+.imageWrapper p {
+  margin-top: 0.5rem;
+  font-weight: 500;
+}
+
+.installationSection {
+  margin-top: 2rem;
+}
+
+.imageContainer {
+  margin-bottom: 1rem;
+}
+
+.installationOptions label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.description {
+  font-size: 0.9rem;
+  color: #666;
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.addressSection {
+  margin-top: 2rem;
+}
+
+.cityZipWrapper {
+  display: flex;
+  gap: 1rem;
+}
+
+.picketSizeSection {
+  margin-top: 2rem;
+}
+
+.formTextarea {
+  width: 100%;
+  min-height: 100px;
+  padding: 0.75rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  resize: vertical;
+}
+
+.pofButton {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 2rem;
+  align-self: flex-start;
+}
+
+.pofButton:hover {
+  background-color: #45a049;
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popupContent {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.close {
+  font-size: 1.5rem;
+  cursor: pointer;
+  float: right;
+}
+
+@media (max-width: 768px) {
+  .projOverviewDiv {
+    padding: 1.5rem;
+  }
+
+  .cityZipWrapper {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+.reviewsSection {
+  margin-top: 4rem;
+  padding: 2rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .reviewsSection {
+    margin-top: 2rem;
+    padding: 1rem;
   }
 }

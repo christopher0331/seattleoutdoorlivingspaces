@@ -4,6 +4,7 @@ import Testimonials from '../components/Testimonials'
 import FeaturedWork from '../components/FeaturedWork'
 import FencingFAQ from '../components/FencingFAQ'
 import CallToAction from '../components/CallToAction'
+import LocationsMap from '../components/LocationsMap'
 import styles from '../styles/Home.module.css'
 import Image from 'next/image'
 
@@ -20,10 +21,10 @@ export default function Home() {
         "telephone": "+1234567890", // Replace with actual phone number
         "address": {
           "@type": "PostalAddress",
-          "streetAddress": "123 Fencing St",
+          "streetAddress": "450 Alaskan Way",
           "addressLocality": "Seattle",
           "addressRegion": "WA",
-          "postalCode": "98101",
+          "postalCode": "98104",
           "addressCountry": "US"
         },
         "areaServed": [
@@ -39,6 +40,7 @@ export default function Home() {
           "Edmonds, WA",
           "Shoreline, WA",
           "Woodinville, WA",
+          "Burien",
           "Newcastle, WA",
           "Kenmore, WA",
           "Maple Valley, WA"
@@ -49,7 +51,7 @@ export default function Home() {
           "https://www.twitter.com/seattleoutdoor",
           "https://www.linkedin.com/company/seattle-outdoor-living"
         ],
-        "hasMap": "https://www.google.com/maps/place/123+Fencing+St,+Seattle,+WA+98101/" // Replace with actual Google Maps link
+        "hasMap": "https://www.google.com/maps/place/450+Alaskan+Way,+Seattle,+WA+98104"
       }
     ]
   };
@@ -71,6 +73,7 @@ export default function Home() {
         <FencingFAQ />
         <CallToAction />
         <FeaturedWork />
+        <LocationsMap />
       </main>
     </>
   )

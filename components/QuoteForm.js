@@ -2,62 +2,175 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import styles from '../styles/Forms.module.css';
 
-export default function QuoteForm() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    fenceType: '',
-    message: '',
-  });
+export default function WarrantyForm() {
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [email, setEmail] = useState('');
+    const [phone, setPhone] = useState('');
+    const [street, setStreet] = useState('');
+    const [city, setCity] = useState('');
+    const [zipCode, setZipCode] = useState('');
+    const [state, setState] = useState('');
+    const [description, setDescription] = useState('');
 
-  const [errors, setErrors] = useState({});
-  const [isSubmitted, setIsSubmitted] = useState(false);
+    const handleSubmit = async (e) => {
+        e.preventDefault();
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
+        const newRequest = {
+            firstName,
+            lastName,
+            email,
+            phone,
+            street,
+            city,
+            zipCode,
+            state,
+            description,
+        };
 
-  const validate = () => {
-    let tempErrors = {};
-    if (!formData.name) tempErrors.name = 'Name is required';
-    if (!formData.email) tempErrors.email = 'Email is required';
-    if (!formData.phone) tempErrors.phone = 'Phone is required';
-    if (!formData.fenceType) tempErrors.fenceType = 'Fence type is required';
-    if (!formData.message) tempErrors.message = 'Message is required';
-    return tempErrors;
-  };
+        try {
+            const docRef = await addDoc(collection(db, "warrantyForms"), newRequest);
+            console.log("Document written with ID: ", docRef.id);
+        } catch (error) {
+            console.error("Error adding document: ", error);
+        }
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const validationErrors = validate();
-    if (Object.keys(validationErrors).length === 0) {
-      setIsSubmitted(true);
-      // Handle form submission logic here
-      console.log('Quote form submitted', formData);
-    } else {
-      setErrors(validationErrors);
-    }
-  };
+        setFirstName('');
+        setLastName('');
+        setEmail('');
+        setPhone('');
+        setStreet('');
+        setCity('');
+        setZipCode('');
+        setState('');
+        setDescription('');
+    };
 
-  return (
-    <div>
-      {isSubmitted ? (
-        <motion.div
-          className={styles.successMessage}
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          <h2>Thank you for requesting a quote!</h2>
-          <p>We will get back to you shortly.</p>
-        </motion.div>
-      ) : (
-        <form className={styles.form} onSubmit={handleSubmit}>
-          {/* Form fields go here (same as in the original QuoteForm) */}
-        </form>
-      )}
-    </div>
-  );
+    return (
+
+            <div className={styles.projOverviewDiv}>
+                <form onSubmit={handleSubmit} className={styles.formContainer}>
+                    <h1 className={styles.formTitle}>Warranty Form</h1>
+                    <p className={styles.formParagraph}>Fields marked with an * are required</p>
+
+                    <div className={styles.formField}>
+                        <label className={styles.formLabel}>
+                            First Name*:
+                            <input
+                                className={styles.formInput}
+                                type="text"
+                                required
+                                value={firstName}
+                                onChange={(e) => setFirstName(e.target.value)}
+                            />
+                        </label>
+                    </div>
+
+                    <div className={styles.formField}>
+                        <label className={styles.formLabel}>
+                            Last Name*:
+                            <input
+                                className={styles.formInput}
+                                type="text"
+                                required
+                                value={lastName}
+                                onChange={(e) => setLastName(e.target.value)}
+                            />
+                        </label>
+                    </div>
+
+                    <div className={styles.formField}>
+                        <label className={styles.formLabel}>
+                            Email*:
+                            <input
+                                className={styles.formInput}
+                                type="email"
+                                required
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                            />
+                        </label>
+                    </div>
+
+                    <div className={styles.formField}>
+                        <label className={styles.formLabel}>
+                            Phone:
+                            <input
+                                className={styles.formInput}
+                                type="tel"
+                                value={phone}
+                                onChange={(e) => setPhone(e.target.value)}
+                            />
+                        </label>
+                    </div>
+
+                    <div className={styles.formField}>
+                        <label className={styles.formLabel}>
+                            Street*:
+                            <input
+                                className={styles.formInput}
+                                type="text"
+                                required
+                                value={street}
+                                onChange={(e) => setStreet(e.target.value)}
+                            />
+                        </label>
+                    </div>
+
+                    <div className={styles.formField}>
+                        <label className={styles.formLabel}>
+                            City*:
+                            <input
+                                className={styles.formInput}
+                                type="text"
+                                required
+                                value={city}
+                                onChange={(e) => setCity(e.target.value)}
+                            />
+                        </label>
+                    </div>
+
+                    <div className={styles.formField}>
+                        <label className={styles.formLabel}>
+                            Zip Code*:
+                            <input
+                                className={styles.formInput}
+                                type="text"
+                                required
+                                value={zipCode}
+                                onChange={(e) => setZipCode(e.target.value)}
+                            />
+                        </label>
+                    </div>
+
+                    <div className={styles.formField}>
+                        <label className={styles.formLabel}>
+                            State/Region*:
+                            <input
+                                className={styles.formInput}
+                                type="text"
+                                required
+                                value={state}
+                                onChange={(e) => setState(e.target.value)}
+                            />
+                        </label>
+                    </div>
+
+                    <div className={styles.formField}>
+                        <label className={styles.formLabel}>
+                            Tell Us About Your Request:
+                            <textarea
+                                className={styles.formInput}
+                                value={description}
+                                onChange={(e) => setDescription(e.target.value)}
+                            />
+                        </label>
+                    </div>
+
+                    <button type="submit" className={styles.formButton}>
+                        Submit Request
+                    </button>
+                </form>
+            </div>
+    );
 }
