@@ -1,0 +1,43 @@
+.card {
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.imageWrapper {
+  position: relative;
+  height: 200px;
+}
+
+.content {
+  padding: 1.5rem;
+}
+
+.content h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.content ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.content li {
+  margin-bottom: 0.5rem;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.content li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #4CAF50;
+}

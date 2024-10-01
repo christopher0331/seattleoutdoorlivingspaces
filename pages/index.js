@@ -7,6 +7,7 @@ import CallToAction from '../components/CallToAction'
 import LocationsMap from '../components/LocationsMap'
 import styles from '../styles/Home.module.css'
 import Image from 'next/image'
+import SvgComponent from '../components/SvgComponent'
 
 export default function Home() {
   const schema = {
@@ -74,6 +75,12 @@ export default function Home() {
         <CallToAction />
         <FeaturedWork />
         <LocationsMap />
+        <div className={styles.callToActionMargin}>
+          <CallToAction />
+        </div>
+        <div className={styles.svgComponentWrapper}>
+          <SvgComponent />
+        </div>
       </main>
     </>
   )

@@ -1,0 +1,97 @@
+/* This file can be similar to WoodFencing.module.css, adjust as needed */
+
+.seoTextContainer {
+    background-color: #f8f9fa;
+    padding: 3rem 0;
+}
+
+.seoText {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 0 1rem;
+}
+
+.seoText h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.seoText p {
+    font-size: 1.1rem;
+    color: #666;
+    line-height: 1.6;
+}
+
+.fenceTypesSection {
+    padding: 2rem 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.sectionTitle {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.sectionSubtitle {
+    font-size: 1.2rem;
+    text-align: center;
+    color: #666;
+    margin-bottom: 2rem;
+}
+
+.fenceTypeGrid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.fenceTypeWrapper {
+    width: 100%;
+    max-width: 500px;
+}
+
+.fenceTypeImageContainer {
+    width: 100%;
+    height: 250px;
+    padding-bottom: 75%; /* Adjust this value to change the aspect ratio */
+    position: relative;
+    overflow: hidden;
+}
+
+.fenceTypeImage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 110%;
+    object-fit: contain;
+}
+
+@media (max-width: 768px) {
+    .seoText h1 {
+        font-size: 2rem;
+    }
+
+    .seoText p {
+        font-size: 1rem;
+    }
+
+    .sectionTitle {
+        font-size: 2rem;
+    }
+
+    .sectionSubtitle {
+        font-size: 1rem;
+    }
+}

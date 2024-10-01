@@ -1,0 +1,183 @@
+.galleryContainer {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.galleryTitle {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.searchContainer {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #999;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 3rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 50px;
+  background-color: #f0f0f0;
+  transition: all 0.3s ease;
+}
+
+.searchInput:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(69, 177, 103, 0.2);
+}
+
+.myMasonryGrid {
+  display: flex;
+  margin-left: -20px;
+  width: auto;
+}
+
+.myMasonryGridColumn {
+  padding-left: 20px;
+  background-clip: padding-box;
+}
+
+.projectCard {
+  margin-bottom: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 75%; /* 4:3 Aspect Ratio */
+}
+
+.projectThumbnail {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.projectCard:hover .overlay {
+  opacity: 1;
+}
+
+.projectCard:hover .projectThumbnail {
+  transform: scale(1.1);
+}
+
+.overlay h3 {
+  color: white;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.viewProjectButton {
+  background-color: #45b167;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.viewProjectButton:hover {
+  background-color: #3a9456;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.loadMoreButton {
+  display: block;
+  margin: 2rem auto 0;
+  background-color: #45b167;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border-radius: 50px;
+}
+
+.loadMoreButton:hover {
+  background-color: #3a9456;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .galleryContainer {
+    padding: 1rem;
+  }
+
+  .galleryTitle {
+    font-size: 2rem;
+  }
+
+  .projectCard {
+    margin-bottom: 15px;
+  }
+
+  .mobileOverlay {
+    opacity: 1;
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+  .mobileOverlay h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .viewProjectButton {
+    padding: 0.3rem 0.8rem;
+    font-size: 0.8rem;
+  }
+
+  .loadMoreButton {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
+  }
+}

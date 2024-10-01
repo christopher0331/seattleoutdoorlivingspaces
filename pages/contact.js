@@ -1,38 +1,58 @@
+import Head from 'next/head'
+import ContactForm from '../components/ContactForm'
+import Testimonials from '../components/Testimonials'
 import styles from '../styles/Contact.module.css'
-import Testimonials from '../components/Testimonials';
 
 export default function Contact() {
   return (
-    <div className={styles.container}>
-      <h1 className={styles.title}>Contact Us</h1>
-      <form className={styles.form}>
-        <div className={styles.formGroup}>
-          <label htmlFor="name" className={styles.label}>Name</label>
-          <input type="text" id="name" name="name" className={styles.input} required />
+    <>
+      <Head>
+        <title>Contact Us - Seattle Outdoor Living</title>
+        <meta name="description" content="Get in touch with Seattle Outdoor Living for all your fencing needs. We serve Seattle and surrounding areas." />
+      </Head>
+
+      <main className={styles.pageContainer}>
+        <aside className={styles.sidebar}>
+          <div className={styles.sidebarSection}>
+            <h2 className={styles.sidebarTitle}>Financing Options Available!</h2>
+            <ul className={styles.sidebarList}>
+              <li>Get an Instant Decision</li>
+              <li>Prequalify With No Impact to Your Credit</li>
+              <li>Financing Packages Up to $75,000</li>
+            </ul>
+          </div>
+
+          <div className={styles.sidebarSection}>
+            <h2 className={styles.sidebarTitle}>What to expect from Seattle Outdoor Living</h2>
+            <ul className={styles.sidebarList}>
+              <li>Top Rated Customer Service</li>
+              <li>Professional Team</li>
+              <li>Licensed, Bonded & Insured</li>
+              <li>Industry Best Warranty</li>
+              <li>GVS Fence Quality</li>
+              <li>GVS Fence Selection</li>
+            </ul>
+          </div>
+        </aside>
+        <div className={styles.mainContent}>
+          <h1 className={styles.title}>Contact Us</h1>
+          <div className={styles.formBackground}>
+            <ContactForm />
+          </div>
         </div>
-        <div className={styles.formGroup}>
-          <label htmlFor="email" className={styles.label}>Email</label>
-          <input type="email" id="email" name="email" className={styles.input} required />
-        </div>
-        <div className={styles.formGroup}>
-          <label htmlFor="message" className={styles.label}>Message</label>
-          <textarea id="message" name="message" className={styles.textarea} required></textarea>
-        </div>
-        <button type="submit" className={styles.submitButton}>Send Message</button>
-      </form>
-      <div>
+      </main>
+      <div className={styles.testimonialWrapper}>
         <Testimonials />
       </div>
-    </div>
+    </>
   )
 }
-
 
 export async function getStaticProps({ params }) {
   return {
     props: {
-      heroImage: "https://imagedelivery.net/OHVtjf602XdHccCnziCADA/564989bf-964c-45c3-2ec6-deeeb9dd2800/public", // Replace with actual hero image URL
-      showHero: true // or false, depending on whether you want to show the hero on fencing pages
+      heroImage: "https://imagedelivery.net/OHVtjf602XdHccCnziCADA/564989bf-964c-45c3-2ec6-deeeb9dd2800/public",
+      showHero: true
     }
   }
 }

@@ -1,21 +1,20 @@
-import { NextResponse } from 'next/server';
-import { generateNonce } from './utils/nonce';
+// middleware.js
 
+// Import necessary modules
+import { NextResponse } from 'next/server';
+
+// Define your middleware function
 export function middleware(request) {
-  const nonce = generateNonce();
+  // You can perform other middleware operations here
+
+  // Example: If you need to redirect or modify the response
   const response = NextResponse.next();
 
-  response.headers.set(
-    'Content-Security-Policy',
-    `script-src 'self' 'nonce-${nonce}' https://maps.googleapis.com;`
-  );
-
-  // Add the nonce to the request so it can be accessed in pages
-  response.headers.set('x-nonce', nonce);
-
+  // Return the response
   return response;
 }
 
+// Configure the middleware to match specific routes if needed
 export const config = {
-  matcher: ['/map'], // Apply this middleware only to the /map route
+  matcher: ['/map'], // Apply this middleware only to the /map route (if necessary)
 };

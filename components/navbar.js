@@ -73,7 +73,7 @@ export default function Navbar() {
       <div className={styles.contactInfo}>
         <div className={styles.contactLinks}>
           <a href="tel:+1234567890">📞 (206)247-4308</a>
-          <a href="mailto:admin@gvsco.net">✉️ mailto:admin@gvsco.net</a>
+          <a href="mailto:admin@gvsco.net">✉️ admin@gvsco.net</a>
         </div>
         <div className={`${styles.socialIcons} ${isSocialOpen ? styles.open : ''}`}>
           {isMobile ? (
@@ -86,16 +86,16 @@ export default function Navbar() {
                 <FaChevronDown className={styles.arrow} />
               </button>
               <div className={styles.socialDropdown}>
-                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"><FaFacebookF /> Facebook</a>
-                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"><FaInstagram /> Instagram</a>
-                <a href="https://google.com" target="_blank" rel="noopener noreferrer"><FaGoogle /> Google</a>
+                <a href="https://www.facebook.com/GreenViewSolutions/" target="_blank" rel="noopener noreferrer"><FaFacebookF /> Facebook</a>
+                <a href="https://www.instagram.com/greenview_solutions_llc/" target="_blank" rel="noopener noreferrer"><FaInstagram /> Instagram</a>
+                <a href="https://www.google.com/maps/place/Greenview+Solutions/@39.9890046,-105.1713587,11z/data=!4m6!3m5!1s0x876bf5d9d671bf3f:0xe263da5d1b64b4a4!8m2!3d40.125623!4d-104.9541494!16s%2Fg%2F11j76mvz9t?coh=164777&entry=tt&shorturl=1" target="_blank" rel="noopener noreferrer"><FaGoogle /> Google</a>
               </div>
             </>
           ) : (
             <>
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"><FaFacebookF /></a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
-              <a href="https://google.com" target="_blank" rel="noopener noreferrer"><FaGoogle /></a>
+              <a href="https://www.facebook.com/GreenViewSolutions/" target="_blank" rel="noopener noreferrer"><FaFacebookF /></a>
+              <a href="https://www.instagram.com/greenview_solutions_llc/" target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
+              <a href="https://www.google.com/maps/place/Greenview+Solutions/@39.9890046,-105.1713587,11z/data=!4m6!3m5!1s0x876bf5d9d671bf3f:0xe263da5d1b64b4a4!8m2!3d40.125623!4d-104.9541494!16s%2Fg%2F11j76mvz9t?coh=164777&entry=tt&shorturl=1" target="_blank" rel="noopener noreferrer"><FaGoogle /></a>
             </>
           )}
         </div>
@@ -115,13 +115,12 @@ export default function Navbar() {
               <Link href="/fencing/wood">Wood Fences</Link>
               <Link href="/fencing/vinyl">Vinyl Fences</Link>
               <Link href="/fencing/decorative-iron">Decorative Iron</Link>
-              <Link href="/fencing/composite">Composite Fences</Link>
             </div>
           </div>
           <div className={styles.navItem}><Link href="/contact">Contact</Link></div>
           <div className={styles.navItem}><Link href="/gallery">Gallery</Link></div>
           <div className={styles.navItem}><Link href="/forms">Forms</Link></div>
-          <div className={styles.navItem}><Link href="/news">News</Link></div>
+          <div className={styles.navItem}><Link href="/blog">News</Link></div>
         </div>
         {isMobile && (
           <button 

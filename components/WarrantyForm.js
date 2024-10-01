@@ -183,7 +183,7 @@ export default function WarrantyForm() {
                 />
             </div>
 
-            <button type="submit" className={styles.submitButton}>Get Quote</button>
+            <button type="submit" className={styles.submitButton}>Submit Form</button>
 
             {showPopup && (
                 <div className={styles.popup}>

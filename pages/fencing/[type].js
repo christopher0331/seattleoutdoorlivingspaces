@@ -22,8 +22,6 @@ export default function FencingType() {
 
 export async function getStaticPaths() {
   const paths = [
-    { params: { type: 'wood' } },
-    { params: { type: 'vinyl' } },
     { params: { type: 'chain-link' } },
     { params: { type: 'ornamental' } },
   ]
