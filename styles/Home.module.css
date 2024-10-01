@@ -139,3 +139,26 @@
       grid-template-columns: 1fr;
     }
   }
+
+  .svgComponentWrapper {
+    margin-top: 3rem !important;
+    padding-top: 3rem !important;
+  }
+
+  .svgComponent {
+    margin-top: 3rem; /* Adjust this value as needed */
+  }
+
+  .svgWrapper {
+    margin-top: 3rem; /* Adjust this value as needed */
+    padding-bottom: 3rem; /* This adds space at the bottom of the main content */
+  }
+
+  .main .svgWrapper {
+    margin-top: 3rem !important;
+    padding-bottom: 3rem !important;
+  }
+
+  .callToActionMargin {
+    margin-bottom: 3rem !important;
+  }

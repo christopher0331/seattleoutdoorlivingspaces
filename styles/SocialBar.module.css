@@ -82,13 +82,14 @@
 
 .socialIcons {
     display: flex;
+    color: #1a0f0f;
     align-items: center;
     margin-left: auto;
 }
 
 .socialIcons a {
     margin-left: 1rem;
-    color: #333;
+    color: #1a0f0f;
     text-decoration: none;
     font-size: 1.5rem;
     transition: color 0.3s ease, transform 0.3s ease;
@@ -99,9 +100,5 @@
     transform: scale(1.2);
 }
 
-/* ... (add the rest of the social bar styles from Navbar.module.css) ... */
 
-@media (max-width: 798px) {
-    /* ... (add the mobile styles for social bar from Navbar.module.css) ... */
-}
 }

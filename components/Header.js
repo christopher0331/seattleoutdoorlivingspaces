@@ -17,8 +17,8 @@ export default function Header({ heroImage, showHero = true }) {
         />
       </div>
       <div className={styles.heroContent}>
-        <h1>Seattle Outdoor Living</h1>
-        <p>Creating beautiful outdoor spaces since 2005</p>
+        <h1>GreenView Solutions</h1>
+        <p>Transforming outdoor spaces into breathtaking sanctuaries since 20015</p>
       </div>
     </header>
   )

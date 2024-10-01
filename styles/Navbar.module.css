@@ -7,18 +7,37 @@
     transition: transform 0.3s ease-in-out;
 }
 
-.navbarWrapper.hidden .contactInfo {
-    transform: translateY(-100%);
-}
-
 .contactInfo {
     background-color: #4CAF50;
-    padding: 1.5rem 2rem; /* Increased padding to make the bar taller */
+    padding: 1.5rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
     color: white;
+}
+
+.navbar {
+    position: relative; /* Change from fixed to relative */
+    top: 0; /* Remove the top offset */
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #f8f9fa;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    z-index: 1000;
+    transition: top 0.3s ease-in-out;
+}
+
+.navbarWrapper.hidden .contactInfo {
+    transform: translateY(-100%);
+}
+
+.navbarWrapper.hidden .navbar {
+    transform: translateY(-100%);
 }
 
 .contactLinks {
@@ -52,25 +71,6 @@
 .socialIcons a:hover {
     color: #006400;
     transform: scale(1.2);
-}
-
-.navbar {
-    position: fixed;
-    top: 80px; /* Adjust this value based on the new height of your contactInfo section */
-    left: 0;
-    right: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-    background-color: #f8f9fa;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    z-index: 1000;
-    transition: top 0.3s ease-in-out;
-}
-
-.navbarWrapper.hidden .navbar {
-    top: 0;
 }
 
 .logo {
@@ -181,32 +181,28 @@
 
 @media (max-width: 798px) {
     .navbar {
-        top: 70px; /* Adjust for mobile */
-    }
-
-    .navbar {
-        justify-content: space-between;
+        padding-right: 60px; /* Make room for the hamburger button */
     }
 
     .navItems {
         position: fixed;
-        top: 130px; /* Adjust this value based on the combined height of contactInfo and navbar */
-        right: -42%;
-        width: 42%;
-        height: calc(100vh - 130px);
+        top: 6%; /* Change this from 100% to 0 */
+        right: -100%; /* Change this from -42% to -100% */
+        width: 30%; /* Increase the width for better visibility */
+        height: 100vh; /* Use full viewport height */
         background-color: #f8f9fa;
         padding: 1rem 0;
-        transition: right 0.3s ease-in-out;
+        transition: right 0.5s ease-in-out;
         box-shadow: -2px 0 5px rgba(0,0,0,0.1);
         overflow-y: auto;
         display: flex;
         flex-direction: column;
-        align-items: flex-end;
+        align-items: flex-start; /* Change from flex-end to flex-start */
         z-index: 1001;
     }
 
     .navItems.open {
-        right: 0;
+        right: 0; /* Add this to show the sidebar when open */
     }
 
     .navItem, .dropdown {
@@ -270,10 +266,6 @@
     }
 
     .hamburger {
-        position: fixed;
-        top: 4rem;
-        right: 4.5rem;
-        z-index: 1002;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
@@ -283,6 +275,11 @@
         border: none;
         cursor: pointer;
         padding: 0;
+        z-index: 1002;
+        position: absolute;
+        top: 50%;
+        right: 15px;
+        transform: translateY(-50%);
     }
 
     .hamburger span {
@@ -355,6 +352,17 @@
 
     .contactInfo {
         padding: 1rem 1.5rem; /* Slightly reduced padding for mobile */
+    }
+
+    .hamburgerMobile {
+        position: absolute;
+        top: 50%;
+        right: 15px;
+        transform: translateY(-50%);
+    }
+
+    .navbar {
+        position: relative;
     }
 }
 
@@ -448,4 +456,3 @@
         font-size: calc(0.8rem + 0.2vw);
     }
 }
-

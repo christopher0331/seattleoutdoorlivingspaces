@@ -1,59 +1,29 @@
 .footer {
   background-color: #2c3e50;
   color: #ecf0f1;
-  padding: 4rem 0 2rem;
-  font-size: 0.9rem;
+  padding: 3rem 0 1rem;
 }
 
 .container {
-  display: flex;
-  justify-content: space-between;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 2rem;
-}
-
-.column {
-  flex: 1;
   padding: 0 1rem;
-  min-width: 200px;
 }
 
-.column h3 {
-  color: #3498db;
-  font-size: 1.4rem;
+.mainContent {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.companyInfo {
+  flex: 1 1 300px;
+}
+
+.companyInfo h3 {
+  font-size: 1.5rem;
   margin-bottom: 1rem;
-}
-
-.column h4 {
-  color: #3498db;
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
-}
-
-.column p {
-  line-height: 1.6;
-  margin-bottom: 1rem;
-}
-
-.column ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-
-.column ul li {
-  margin-bottom: 0.5rem;
-}
-
-.column ul li a {
-  color: #ecf0f1;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.column ul li a:hover {
-  color: #3498db;
 }
 
 .socialIcons {
@@ -72,19 +42,78 @@
   color: #3498db;
 }
 
-.bottom {
-  text-align: center;
-  margin-top: 2rem;
-  padding-top: 2rem;
-  border-top: 1px solid #34495e;
+.linksSection {
+  display: flex;
+  flex: 2 1 400px;
+  gap: 2rem;
 }
 
-.bottom p {
+.linkColumn h4 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.linkColumn ul {
+  list-style: none;
+  padding: 0;
+}
+
+.linkColumn li {
   margin-bottom: 0.5rem;
 }
 
+.linkColumn a {
+  color: #ecf0f1;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.linkColumn a:hover {
+  color: #3498db;
+}
+
+.contactInfo {
+  flex: 1 1 300px;
+}
+
+.contactInfo h4 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.contactInfo ul {
+  list-style: none;
+  padding: 0;
+}
+
+.contactInfo li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.contactInfo li svg {
+  margin-right: 0.5rem;
+}
+
+.contactInfo a {
+  color: #ecf0f1;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contactInfo a:hover {
+  color: #3498db;
+}
+
+.bottom {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
 .bottom a {
-  color: #bdc3c7;
+  color: #ecf0f1;
   text-decoration: none;
   transition: color 0.3s ease;
 }
@@ -93,24 +122,12 @@
   color: #3498db;
 }
 
-@media (max-width: 1024px) {
-  .container {
-    flex-wrap: wrap;
-  }
-
-  .column {
-    flex-basis: 50%;
-    margin-bottom: 2rem;
-  }
-}
-
 @media (max-width: 768px) {
-  .container {
+  .mainContent {
     flex-direction: column;
   }
-
-  .column {
-    width: 100%;
-    margin-bottom: 2rem;
+  
+  .linksSection {
+    flex-direction: column;
   }
 }
