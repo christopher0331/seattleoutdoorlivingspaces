@@ -2,5 +2,18 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/": "pages/index.js"
+  "/api/getProjects": "pages/api/getProjects.js",
+  "/contact": "pages/contact.js",
+  "/fencing/[type]": "pages/fencing/[type].js",
+  "/forms": "pages/forms.js",
+  "/services": "pages/services.html",
+  "/map": "pages/map.js",
+  "/gallery": "pages/gallery.js",
+  "/blog": "pages/blog.js",
+  "/blog/[id]": "pages/blog/[id].js",
+  "/fencing/wood": "pages/fencing/wood.js",
+  "/": "pages/index.js",
+  "/fencing/vinyl": "pages/fencing/vinyl.js",
+  "/404": "pages/404.html",
+  "/services.amp": "pages/services.amp.html"
 }
