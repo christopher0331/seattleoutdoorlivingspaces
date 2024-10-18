@@ -8,7 +8,7 @@ export default function Footer() {
       <div className={styles.container}>
         <div className={styles.mainContent}>
           <div className={styles.companyInfo}>
-            <h3>Seattle Outdoor Living</h3>
+            <h3>Seattle Outdoor Living!</h3>
             <p>Creating beautiful outdoor spaces since 2005. We specialize in high-quality fencing solutions for your home and property.</p>
             <div className={styles.socialIcons}>
               <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><FaFacebookF /></a>
