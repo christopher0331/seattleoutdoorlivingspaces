@@ -46,12 +46,6 @@ export default function Home() {
           "Kenmore, WA",
           "Maple Valley, WA"
         ],
-        "sameAs": [
-          "https://www.facebook.com/seattleoutdoorliving",
-          "https://www.instagram.com/seattleoutdoorliving",
-          "https://www.twitter.com/seattleoutdoor",
-          "https://www.linkedin.com/company/seattle-outdoor-living"
-        ],
         "hasMap": "https://www.google.com/maps/place/450+Alaskan+Way,+Seattle,+WA+98104"
       }
     ]
