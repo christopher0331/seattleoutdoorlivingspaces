@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Navbar from './navbar';
 import styles from '../styles/Header.module.css'
 
 export default function Header({ heroImage, showHero = true }) {
@@ -14,7 +15,8 @@ export default function Header({ heroImage, showHero = true }) {
           objectFit="cover"
           quality={100}
           priority
-        />
+        />    
+        <Navbar />
       </div>
       <div className={styles.heroContent}>
         <h1>GreenView Solutions</h1>

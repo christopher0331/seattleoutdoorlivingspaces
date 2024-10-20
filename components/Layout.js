@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import Navbar from './navbar';
 import Header from './Header';
 import Footer from './Footer';
 import styles from '../styles/Layout.module.css';
@@ -12,7 +11,6 @@ export default function Layout({ children, heroImage, showHero = true }) {
         <meta name="description" content="Seattle's premier outdoor living solutions" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Navbar />
       {showHero && <Header heroImage={heroImage} />}
       <main className={styles.main}>
         {children}
