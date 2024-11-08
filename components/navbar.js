@@ -2,7 +2,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
-import { FaChevronDown, FaLinkedinIn, FaFacebookF, FaInstagram } from 'react-icons/fa'
+import { FaChevronDown, FaFacebookF, FaInstagram, FaGoogle } from 'react-icons/fa'
 import styles from '../styles/Navbar.module.css'
 
 export default function Navbar() {
@@ -78,9 +78,9 @@ export default function Navbar() {
         <div className={styles.navItem}><Link href="/blog">Blog</Link></div>
       </div>
       <div className={styles.socialIcons}>
-        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"><FaLinkedinIn /></a>
-        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"><FaFacebookF /></a>
-        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
+        <a href="https://www.google.com/maps/place/GreenView+Solutions/@47.5985273,-122.4113869,13z/data=!3m1!5s0x54906aa4f9ca8dc5:0xf6fc0aca1e0fb080!4m10!1m2!2m1!1sGreenView+Solutions+seattle!3m6!1s0x54906bcc05bd9725:0x7d92961af7d735cc!8m2!3d47.5985273!4d-122.3351692!15sChtHcmVlblZpZXcgU29sdXRpb25zIHNlYXR0bGWSARBmZW5jZV9jb250cmFjdG9y4AEA!16s%2Fg%2F11v9flyvhd?entry=ttu&g_ep=EgoyMDI0MTAyOS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer"><FaGoogle /></a>
+        <a href="https://facebook.com/greenviewsolutions" target="_blank" rel="noopener noreferrer"><FaFacebookF /></a>
+        <a href="https://instagram.com/greenview_solutions_llc" target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
       </div>
       {isMobile && (
         <button 
