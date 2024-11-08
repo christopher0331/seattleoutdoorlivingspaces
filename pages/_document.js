@@ -1,7 +1,13 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
+import { getTestimonials } from '../components/TestimonialsData.js';
 
 class MyDocument extends Document {
+
+  
+
   render() {
+    const testimonials = getTestimonials();
+
     const csp = `
       default-src 'self';
       script-src 'self' 'unsafe-eval' https://maps.googleapis.com;
@@ -204,6 +210,7 @@ class MyDocument extends Document {
 
           <script
             type="application/ld+json"
+            
             dangerouslySetInnerHTML={{
               __html: JSON.stringify({
                 "@context": "https://schema.org",
