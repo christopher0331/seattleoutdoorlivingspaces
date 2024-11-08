@@ -31,6 +31,7 @@ export default function Testimonials() {
   const [direction, setDirection] = useState(0);
   const [isAutoPlay, setIsAutoPlay] = useState(true);
   const timerRef = useRef(null);
+  const textWrapperRef = useRef(null);
 
   const resetTimer = useCallback(() => {
     if (timerRef.current) {
@@ -67,6 +68,30 @@ export default function Testimonials() {
       }
     };
   }, [isAutoPlay, resetTimer]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (textWrapperRef.current) {
+        const { scrollTop, scrollHeight, clientHeight } = textWrapperRef.current;
+        if (scrollTop + clientHeight >= scrollHeight) {
+          textWrapperRef.current.style.setProperty('--gradient-opacity', '0');
+        } else {
+          textWrapperRef.current.style.setProperty('--gradient-opacity', '1');
+        }
+      }
+    };
+
+    const currentRef = textWrapperRef.current;
+    if (currentRef) {
+      currentRef.addEventListener('scroll', handleScroll);
+    }
+
+    return () => {
+      if (currentRef) {
+        currentRef.removeEventListener('scroll', handleScroll);
+      }
+    };
+  }, [currentTestimonial]);
 
   const variants = {
     enter: (direction) => ({
@@ -120,7 +145,12 @@ export default function Testimonials() {
               className={styles.testimonialCard}
             >
               <FaQuoteLeft className={styles.quoteIcon} />
-              <p className={styles.testimonialText}>{testimonials[currentTestimonial].text}</p>
+              <div className={styles.scrollIndicator}>Scroll</div>
+              <div className={styles.testimonialTextWrapper} ref={textWrapperRef}>
+                <p className={styles.testimonialText}>
+                  {testimonials[currentTestimonial].text}
+                </p>
+              </div>
               <div className={styles.testimonialAuthor}>
                 <motion.img 
                   src={testimonials[currentTestimonial].avatar} 

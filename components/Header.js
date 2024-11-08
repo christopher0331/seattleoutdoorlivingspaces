@@ -20,7 +20,7 @@ export default function Header({ heroImage, showHero = true }) {
       </div>
       <div className={styles.heroContent}>
         <h1>GreenView Solutions</h1>
-        <p>Transforming outdoor spaces into breathtaking sanctuaries since 20015</p>
+        <p>Transforming outdoor spaces into breathtaking sanctuaries since 2015</p>
       </div>
     </header>
   )
