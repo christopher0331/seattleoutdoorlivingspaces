@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import Head from 'next/head'
 import Hero from '../../components/Hero'
 import FenceTypeCard from '../../components/FenceTypeCard'
@@ -6,52 +6,76 @@ import CTASection from '../../components/CTASection'
 import TestimonialSection from '../../components/TestimonialSection'
 import FenceShapeShowcase from '../../components/FenceShapeShowcase'
 import VinylFenceFAQ from '../../components/VinylFenceFAQ'
-import { motion, useAnimation, AnimatePresence } from 'framer-motion'
-import { useInView } from 'react-intersection-observer'
+import BenefitsSection from '../../components/BenefitsSection'
+import { motion, AnimatePresence } from 'framer-motion'
 import styles from '../../styles/VinylFencing.module.css'
-
 const vinylFenceTypes = [
     {
-        title: 'Privacy Fence',
-        description: 'Create a secluded sanctuary with our sturdy privacy fences, perfect for homeowners seeking maximum seclusion and security.',
-        image: 'https://imagedelivery.net/OHVtjf602XdHccCnziCADA/1fe8c671-e3fa-4e89-24a9-89160e026d00/public',
-        benefits: ['Complete privacy', 'Enhanced security', 'Windbreak protection'],
+        title: '3 Rail',
+        description: 'Enhance your property with our classic 3 rail vinyl fencing, offering a perfect balance of openness and boundary definition.',
+        image: 'https://imagedelivery.net/OHVtjf602XdHccCnziCADA/56fbbe69-a163-40b4-ed24-163f6714c300/public',
+        benefits: ['Open, airy design', 'Ideal for large properties', 'Low maintenance'],
     },
     {
-        title: 'Picket Fence',
-        description: 'Add a touch of classic Americana to your property with our charming picket fences, ideal for defining boundaries with style.',
-        image: 'https://imagedelivery.net/OHVtjf602XdHccCnziCADA/edde074c-3da2-408a-5a45-b8322ea01100/public',
-        benefits: ['Decorative appeal', 'Child and pet-friendly', 'Enhances curb appeal'],
+        title: 'Hamilton',
+        description: 'Elevate your property&apos;s charm with our Hamilton vinyl fencing, blending classic elegance with modern durability for a timeless look.',
+        image: 'https://imagedelivery.net/OHVtjf602XdHccCnziCADA/64bdfb33-549d-4c4e-e22f-79b920b4fc00/public',
+        benefits: ['Elegant picket design', 'Low maintenance', 'Weather-resistant', 'Customizable height and spacing'],
     },
 ]
 
-const fadeInUp = {
-    initial: { opacity: 0, y: 60 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.6 }
-}
+const vinylBenefits = [
+    {
+        title: 'Low Maintenance',
+        description: 'Vinyl fencing requires minimal upkeep, saving you time and money on repairs and painting.',
+        icon: '🔧',
+    },
+    {
+        title: 'Durability',
+        description: 'Resistant to rot, pests, and weather damage, vinyl fences can last for decades with proper care.',
+        icon: '💪',
+    },
+    {
+        title: 'Versatility',
+        description: 'Available in various styles and colors to match any property aesthetic.',
+        icon: '🎨',
+    },
+    {
+        title: 'Cost-Effective',
+        description: 'While initial costs may be higher, the longevity and low maintenance of vinyl fencing offer long-term savings.',
+        icon: '💰',
+    },
+]
 
-export default function WoodFencing({ heroImage, showHero }) {
+export default function VinylFencing({ heroImage, showHero }) {
     const [selectedFence, setSelectedFence] = useState(null)
+
+    // Close modal when Escape key is pressed
+    useEffect(() => {
+        const handleEsc = (event) => {
+            if (event.key === 'Escape') {
+                setSelectedFence(null)
+            }
+        }
+        window.addEventListener('keydown', handleEsc)
+        return () => {
+            window.removeEventListener('keydown', handleEsc)
+        }
+    }, [])
 
     return (
         <>
-            <Head>
-                <title>Premium Vinyl Fencing Solutions in Seattle | Seattle Outdoor Living</title>
-                <meta name="description" content="Discover our exceptional range of wood fencing options in Seattle. From privacy fences to picket designs, we offer top-quality solutions to enhance your property's beauty and security." />
-                <link rel="canonical" href="https://www.seattleoutdoorliving.com/fencing/wood" />
-            </Head>
 
             <div className={styles.seoTextContainer}>
                 <div className={styles.seoText}>
                     <h1>Premium Vinyl Fencing Solutions in Seattle</h1>
-                    <p>Discover our exceptional range of wood fencing options, perfect for enhancing your property's beauty, privacy, and security. From classic picket fences to modern horizontal designs, our expert team delivers top-quality wood fencing solutions tailored to your needs. Explore our collection and transform your outdoor space today!</p>
+                    <p>Explore our exceptional range of vinyl fencing options, designed to enhance your property's aesthetics, privacy, and security. From classic styles to modern designs, our expert team delivers top-quality vinyl fencing solutions tailored to your needs. Discover the benefits of low-maintenance, long-lasting vinyl fences and transform your outdoor space today!</p>
                 </div>
             </div>
 
             <section className={styles.fenceTypesSection}>
-                <div className={styles.container}>
-                    <motion.h2
+                <div className={`${styles.container} ${styles.centeredContainer}`}>
+                    <motion.h2 
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.2 }}
@@ -59,61 +83,72 @@ export default function WoodFencing({ heroImage, showHero }) {
                     >
                         Our Premium Vinyl Fence Collection
                     </motion.h2>
-                    <p className={styles.sectionSubtitle}>Discover the perfect blend of aesthetics and functionality</p>
-                    <div className={styles.fenceTypeGrid}>
-                        <motion.div
-                            initial={{ opacity: 0, y: 50 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.1 }}
-                            className={styles.fenceTypeWrapper}
-                            onClick={() => setSelectedFence(vinylFenceTypes[0])}
-                        >
-                            <FenceTypeCard
-                                title="Hamilton"
-                                description="Elevate your property's privacy with our Hamilton vinyl fencing, offering a sleek and modern solution for homeowners seeking both style and seclusion."
-                                image="https://imagedelivery.net/OHVtjf602XdHccCnziCADA/64bdfb33-549d-4c4e-e22f-79b920b4fc00/public"
-                                benefits={['Complete privacy', 'Enhanced security', 'Windbreak protection']}
-                            />
-                        </motion.div>
-                        <motion.div
-                            initial={{ opacity: 0, y: 50 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: 0.2 }}
-                            className={styles.fenceTypeWrapper}
-                            onClick={() => setSelectedFence(vinylFenceTypes[1])}
-                        >
-                            <FenceTypeCard
-                                title="Split Rail"
-                                description="Embrace rustic charm with our Split Rail vinyl fencing, perfect for defining property lines and creating a classic, countryside aesthetic without the maintenance of traditional wood."
-                                image="https://imagedelivery.net/OHVtjf602XdHccCnziCADA/56fbbe69-a163-40b4-ed24-163f6714c300/public"
-                                benefits={['Decorative appeal', 'Child and pet-friendly', 'Enhances curb appeal']}
-                            />
-                        </motion.div>
+                    <p className={styles.sectionSubtitle}>Discover the perfect blend of durability and style</p>
+                    <div 
+                        className={`${styles.fenceTypeGrid} ${styles.centeredGrid}`}
+                        style={{
+                            display: 'flex',
+                            justifyContent: 'center',
+                            gap: '2rem',
+                            flexWrap: 'wrap',
+                            maxWidth: '1200px',
+                            margin: '0 auto'
+                        }}
+                    >
+                        {vinylFenceTypes.map((fenceType, index) => (
+                            <motion.div
+                                key={index}
+                                initial={{ opacity: 0, y: 50 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.1 * index }}
+                                className={styles.fenceTypeWrapper}
+                                onClick={() => setSelectedFence(fenceType)}
+                                style={{
+                                    flexBasis: '100%',
+                                    maxWidth: '400px',
+                                    margin: '0 auto 2rem',
+                                }}
+                            >
+                                <FenceTypeCard
+                                    title={fenceType.title}
+                                    description={fenceType.description}
+                                    image={fenceType.image}
+                                />
+                            </motion.div>
+                        ))}
                     </div>
                 </div>
             </section>
 
+            <BenefitsSection 
+                title="Why Choose Vinyl Fencing?"
+                benefits={vinylBenefits}
+                titleClassName={styles.benefitsSectionTitle}
+            />
+
             <AnimatePresence>
                 {selectedFence && (
-                    <motion.div
+                    <motion.div 
                         className={styles.modalOverlay}
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         onClick={() => setSelectedFence(null)}
                     >
-                        <motion.div
+                        <motion.div 
                             className={styles.modalContent}
                             initial={{ y: 50, opacity: 0 }}
                             animate={{ y: 0, opacity: 1 }}
                             exit={{ y: 50, opacity: 0 }}
-                            onClick={e => e.stopPropagation()}
+                            onClick={(e) => e.stopPropagation()}
                         >
                             <h3>{selectedFence.title}</h3>
                             <p>{selectedFence.description}</p>
                             <ul>
                                 {selectedFence.benefits.map((benefit, index) => (
-                                    <li key={index}>{benefit}</li>
+                                    <li key={index}>
+                                        <span>{benefit.icon}</span> <strong>{benefit.title}:</strong> {benefit.description}
+                                    </li>
                                 ))}
                             </ul>
                             <button onClick={() => setSelectedFence(null)}>Close</button>
@@ -121,24 +156,18 @@ export default function WoodFencing({ heroImage, showHero }) {
                     </motion.div>
                 )}
             </AnimatePresence>
-            
+
             <CTASection 
                 title="Ready to Enhance Your Property?"
                 description="Explore our vinyl fencing options and find the perfect solution for your home."
                 buttonText="Get a Free Quote"
-                buttonLink="/contact"  // Make sure this link is correct
+                buttonLink="/contact"
             />
-            
+
             <VinylFenceFAQ />
 
-            <CTASection
-                title="Transform Your Outdoor Space Today"
-                description="Schedule a consultation with our expert team to explore the perfect vinyl fencing solution for your property."
-                buttonText="Request a Free Consultation"
-                buttonLink="/contact"  // Make sure this link is correct
-            />
-
             <TestimonialSection />
+
         </>
     )
 }
